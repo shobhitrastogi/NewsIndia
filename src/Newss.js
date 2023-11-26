@@ -4,8 +4,8 @@ const Newss = (props) => {
   const [news, setNews] = useState([]);
   const [page, setpage] = useState(1)
   const BASE_URL = "https://newsapi.org/v2/top-headlines"
-  // const [pageSize,setpagesize]=useState(8)
   useEffect(() => {
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     fetchNews();
   },[]);
 
