@@ -6,18 +6,18 @@ const Newss = (props) => {
   const BASE_URL = "https://newsapi.org/v2/top-headlines"
   useEffect(() => {
       // eslint-disable-next-line react-hooks/exhaustive-deps
-    fetchNews();
-  },[]);
-
-  const fetchNews = async () => {
-   
-    const response = await fetch(
-      `${BASE_URL}?country=${props.country}&apiKey=${process.env.REACT_APP_API_KEY}&category=${props.category}&page=${page}&pageSize=15`
-    );
-    setpage(1)
-    const data = await response.json();
-    setNews(data.articles);
-  };
+      
+      const fetchNews = async () => {
+        
+        const response = await fetch(
+          `${BASE_URL}?country=${props.country}&apiKey=${process.env.REACT_APP_API_KEY}&category=${props.category}&page=${page}&pageSize=15`
+          );
+          setpage(1)
+          const data = await response.json();
+          setNews(data.articles);
+        };
+        fetchNews();
+},[ [page, props.country, props.category]]);
   const handlep = async () => {
     console.log("hello");
     const response = await fetch(
