@@ -15,7 +15,15 @@ const App = () => {
             element={<Newss key="entertainment" country="in" category="entertainment" />} />
           
           <Route path='/technology' 
-            element={<Newss key="technology" country="in" category="technology" />} />
+            element={<Newss key="technology" country="in" category="technology" />} /> <Route path='/business' 
+            element={<Newss key="business" country="in" category="business" />} /><Route path='/science' 
+            element={<Newss key="science" country="in" category="science" />} />
+            <Route path='/sports' 
+            element={<Newss key="sports" country="in" category="sports" />} />
+            <Route path='/health' 
+            element={<Newss key="health" country="in" category="health" />} />
+            <Route path='/general' 
+            element={<Newss key="general" country="in" category="general" />} />
          
         </Routes>
       </BrowserRouter>

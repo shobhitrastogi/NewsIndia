@@ -3,15 +3,16 @@ import React, { useEffect, useState } from "react";
 const Newss = (props) => {
   const [news, setNews] = useState([]);
   const [page, setpage] = useState(1)
+  const BASE_URL = "https://newsapi.org/v2/top-headlines"
   // const [pageSize,setpagesize]=useState(8)
   useEffect(() => {
     fetchNews();
   },[]);
 
   const fetchNews = async () => {
-    const API_KEY = "fd901a2f2f7b4dc9876db7ba26fdddb2";
+   
     const response = await fetch(
-      `https://newsapi.org/v2/top-headlines?country=${props.country}&apiKey=${API_KEY}&category=${props.category}&page=${page}&pageSize=15`
+      `${BASE_URL}?country=${props.country}&apiKey=${process.env.REACT_APP_API_KEY}&category=${props.category}&page=${page}&pageSize=15`
     );
     setpage(1)
     const data = await response.json();
@@ -19,9 +20,8 @@ const Newss = (props) => {
   };
   const handlep = async () => {
     console.log("hello");
-    const API_KEY = "fd901a2f2f7b4dc9876db7ba26fdddb2";
     const response = await fetch(
-      `https://newsapi.org/v2/top-headlines?country=${props.country}&apiKey=${API_KEY}&category=${props.category}&page=${page-1}&pageSize=15`
+      `${BASE_URL}?country=${props.country}&apiKey=${process.env.REACT_APP_API_KEY}&category=${props.category}&page=${page-1}&pageSize=15`
     );
     setpage(page-1)
     const data = await response.json();
@@ -39,9 +39,8 @@ const Newss = (props) => {
   }
   const fatchmoredata = async () => {
     console.log("ji");
-    const API_KEY = "fd901a2f2f7b4dc9876db7ba26fdddb2";
     const response = await fetch(
-      `https://newsapi.org/v2/top-headlines?country=${props.country}&apiKey=${API_KEY}&category=${props.category}&page=${page+2}&pageSize=15`
+      `${BASE_URL}?country=${props.country}&apiKey=${process.env.REACT_APP_API_KEY}&category=${props.category}&page=${page+2}&pageSize=15`
     );
     setpage(page+2)
     const data = await response.json();
